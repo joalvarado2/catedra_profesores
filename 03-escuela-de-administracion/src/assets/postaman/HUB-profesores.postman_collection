@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "ebf48538-2aaa-4f8b-9e58-65c7e3273d83",
+		"name": "HUB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13722123"
+	},
+	"item": [
+		{
+			"name": "HUB profesores",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/sparql-results+json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "http://urosario.edu.co/",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "text/n3",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://research-hub.urosario.edu.co/vivo11/api/sparqlQuery?email=fredyal.gonzalez@urosario.edu.co&password=Ur2023&query=PREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20vivo%3A%20%3Chttp%3A%2F%2Fvivoweb.org%2Fontology%2Fcore%23%3E%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX%20obo%3A%20%20%20%20%20%20%3Chttp%3A%2F%2Fpurl.obolibrary.org%2Fobo%2F%3E%0APREFIX%20vcard%3A%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23%3E%0APREFIX%20vlocal%3A%20%20%20%3Chttp%3A%2F%2Fresearch-hub.urosario.edu.co%2Fontology%2Fvlocal%23%3E%0APREFIX%20vitro-public%3A%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23%3E%0APREFIX%20rdf%3A%20%20%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX%20rdfs%3A%20%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT%20DISTINCT%20%3Fperson%20%3FPersonTitle%20%28str%20%28%3FprsnLabel%29%20AS%20%3FpersonLabel%29%20%20%3Femail%20%3Ftelefono%20%28str%20%28%3FthumbnailURL%29%20AS%20%3Fthumbnail%29%20%3FdirLabel%20%28str%28%3FdepartmentLabel%29%20AS%20%3ForgLabel%29%20%3Forg%0AWHERE%20%7B%0A%20%20%20%20%3Chttp%3A%2F%2Fresearch-hub.urosario.edu.co%2Findividual%2FnSCHOOL12-ECHUR%3E%20vivo%3ArelatedBy%20%3Fposn%20.%0A%20%20%20%20%3Chttp%3A%2F%2Fresearch-hub.urosario.edu.co%2Findividual%2FnSCHOOL12-ECHUR%3E%20rdfs%3Alabel%20%3FdepartmentLabel.%0A%20%20%20%20%3Fposn%20a%20vivo%3APosition%20.%0A%20%20%20%20%3Fposn%20%20vivo%3Arelates%20%3Fperson%20.%0A%20%20%20%20%3Fperson%20a%20vlocal%3AUREntity%20.%0A%20%20%20%20%3Fperson%20rdfs%3Alabel%20%3FprsnLabel%20.%0A%20%20%20%20%3Fperson%20vivo%3AhrJobTitle%20%3FPersonTitle.%0A%20%20%20%20%3Fperson%20%20%3Chttp%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FARG_2000028%3E%20%3FvcardUri.%0A%20%20%20%20%3FvcardUri%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2F0.7%23mostSpecificType%3E%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23Individual%3E.%0A%20%20%20%20%3FvcardUri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23hasEmail%3E%20%20%3FemailUri.%0A%20%20%20%20%3FemailUri%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23email%3E%20%3Femail.%0A%20%20%20%20%3FvcardUri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23hasTelephone%3E%20%3Ftelephone_uri.%0A%20%20%20%20%3Ftelephone_uri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23telephone%3E%20%3Ftelefono.%0A%20%20%20%20OPTIONAL%7B%3FvcardUri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23hasAddress%3E%20%3Fdir.%0A%20%20%20%20%20%3Fdir%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23streetAddress%3E%20%3FdirLabel.%20%7D%0A%20%20%20%20OPTIONAL%7B%0A%20%20%20%20%3Fperson%20%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23mainImage%3E%20%3Fimageuri.%0A%20%20%20%20%3Fimageuri%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23thumbnailImage%3E%20%3FthumbnailImage.%0A%20%20%20%20%3FthumbnailImage%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23downloadLocation%3E%20%3FdownloadLocation.%0A%20%20%20%20%20%3FdownloadLocation%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23directDownloadUrl%3E%20%3FthumbnailURL.%0A%20%20%20%20%7D%0A%7D%0AORDER%20BY%20%3FpersonLabel",
+					"protocol": "https",
+					"host": [
+						"research-hub",
+						"urosario",
+						"edu",
+						"co"
+					],
+					"path": [
+						"vivo11",
+						"api",
+						"sparqlQuery"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "fredyal.gonzalez@urosario.edu.co"
+						},
+						{
+							"key": "password",
+							"value": "Ur2023"
+						},
+						{
+							"key": "query",
+							"value": "PREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20vivo%3A%20%3Chttp%3A%2F%2Fvivoweb.org%2Fontology%2Fcore%23%3E%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX%20obo%3A%20%20%20%20%20%20%3Chttp%3A%2F%2Fpurl.obolibrary.org%2Fobo%2F%3E%0APREFIX%20vcard%3A%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23%3E%0APREFIX%20vlocal%3A%20%20%20%3Chttp%3A%2F%2Fresearch-hub.urosario.edu.co%2Fontology%2Fvlocal%23%3E%0APREFIX%20vitro-public%3A%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23%3E%0APREFIX%20rdf%3A%20%20%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX%20rdfs%3A%20%20%20%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0ASELECT%20DISTINCT%20%3Fperson%20%3FPersonTitle%20%28str%20%28%3FprsnLabel%29%20AS%20%3FpersonLabel%29%20%20%3Femail%20%3Ftelefono%20%28str%20%28%3FthumbnailURL%29%20AS%20%3Fthumbnail%29%20%3FdirLabel%20%28str%28%3FdepartmentLabel%29%20AS%20%3ForgLabel%29%20%3Forg%0AWHERE%20%7B%0A%20%20%20%20%3Chttp%3A%2F%2Fresearch-hub.urosario.edu.co%2Findividual%2FnSCHOOL12-ECHUR%3E%20vivo%3ArelatedBy%20%3Fposn%20.%0A%20%20%20%20%3Chttp%3A%2F%2Fresearch-hub.urosario.edu.co%2Findividual%2FnSCHOOL12-ECHUR%3E%20rdfs%3Alabel%20%3FdepartmentLabel.%0A%20%20%20%20%3Fposn%20a%20vivo%3APosition%20.%0A%20%20%20%20%3Fposn%20%20vivo%3Arelates%20%3Fperson%20.%0A%20%20%20%20%3Fperson%20a%20vlocal%3AUREntity%20.%0A%20%20%20%20%3Fperson%20rdfs%3Alabel%20%3FprsnLabel%20.%0A%20%20%20%20%3Fperson%20vivo%3AhrJobTitle%20%3FPersonTitle.%0A%20%20%20%20%3Fperson%20%20%3Chttp%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FARG_2000028%3E%20%3FvcardUri.%0A%20%20%20%20%3FvcardUri%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2F0.7%23mostSpecificType%3E%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23Individual%3E.%0A%20%20%20%20%3FvcardUri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23hasEmail%3E%20%20%3FemailUri.%0A%20%20%20%20%3FemailUri%20%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23email%3E%20%3Femail.%0A%20%20%20%20%3FvcardUri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23hasTelephone%3E%20%3Ftelephone_uri.%0A%20%20%20%20%3Ftelephone_uri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23telephone%3E%20%3Ftelefono.%0A%20%20%20%20OPTIONAL%7B%3FvcardUri%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23hasAddress%3E%20%3Fdir.%0A%20%20%20%20%20%3Fdir%20%3Chttp%3A%2F%2Fwww.w3.org%2F2006%2Fvcard%2Fns%23streetAddress%3E%20%3FdirLabel.%20%7D%0A%20%20%20%20OPTIONAL%7B%0A%20%20%20%20%3Fperson%20%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23mainImage%3E%20%3Fimageuri.%0A%20%20%20%20%3Fimageuri%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23thumbnailImage%3E%20%3FthumbnailImage.%0A%20%20%20%20%3FthumbnailImage%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23downloadLocation%3E%20%3FdownloadLocation.%0A%20%20%20%20%20%3FdownloadLocation%20%3Chttp%3A%2F%2Fvitro.mannlib.cornell.edu%2Fns%2Fvitro%2Fpublic%23directDownloadUrl%3E%20%3FthumbnailURL.%0A%20%20%20%20%7D%0A%7D%0AORDER%20BY%20%3FpersonLabel"
+						},
+						{
+							"key": "query",
+							"value": "DESCRIBE%20%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2FConnecticut%3E",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
