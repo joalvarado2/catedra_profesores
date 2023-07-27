@@ -1,50 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import './App.css';
-import Cargando from './assets/Cargando/Cargando';
-import ServicioHub from './assets/Servicio/ServicioHub';
-import Formulario from './components/Formulario/Formulario';
-import Tarjetas from './components/Tarjetas/Tarjetas';
-import ExcelToJsonConverter from './components/converciones/ExcelToJsonConverter';
+import ExcelToJsonConverter from './components/ExcelToJsonConverter/ExcelToJsonConverter';
 
-function App() {
+const App = () => {
+    const [filteredData, setFilteredData] = useState([]);
 
-    const [profesores, setProfesores] = useState([])
-    const [filtroProfesor, setFiltroProfesor] = useState('')
+    const handleFilter = (filteredData) => {
+        // Actualiza el estado con los datos filtrados
+        setFilteredData(filteredData);
+    };
 
     return (
-        <>
-
-            <ServicioHub
-                setProfesores={setProfesores}
-            />
+        <div>
             <div className="file">
-                <h1>Excel to JSON Converter</h1>
-                <ExcelToJsonConverter />
+                <ExcelToJsonConverter onDataSelected={handleFilter} />
             </div>
-            {
-                (() => {
-                    if (profesores.length <= 0) {
-                        return (
-                            <Cargando />
-                        )
-                    } else {
-                        return (
-                            <>
-                                <Formulario
-                                    setFiltroProfesor={setFiltroProfesor}
-                                    profesores={profesores}
-                                />
-                                <Tarjetas
-                                    filtroProfesor={filtroProfesor}
-                                    profesores={profesores}
-                                />
-                            </>
-                        )
-                    }
-                })()
-            }
-        </>
+        </div>
     );
-}
+};
 
 export default App;
